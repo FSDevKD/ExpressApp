@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="/css/main.css">
+<html>
+<head>
+  <title>CRM</title>
+</head>
+<body>
+  <header></header>
+  <div>
+  <h1>Customers</h1>
+  <p>Take your time when entering customer information! <br> You can edit information later!</p>
+  </div>
+
+  <div>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% customers.forEach(customer => { %>
+            <tr>
+            <td><%= customer.name %></td>
+            <td><%= customer.email %></td>
+            <td><%= customer.phone %></td>
+            <td>
+                <a href="/edit/<%= customer._id %>">Edit</a>
+                <form style="display: inline;" action="/delete/<%= customer._id %>" method="post">
+                <button type="submit">Delete</button>
+                </form>
+            </td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+   </div>
+   <div >
+   <a href="/add" class ="c">Add Customer</a>
+   </div>
+  <footer> Made With &hearts; In Philly &copy; <a href="http://fsdevkd.com">FsdevKD.com</afooter>
+</body>
+</html>
